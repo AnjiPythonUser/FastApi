@@ -1,5 +1,5 @@
 from typing import Union
-
+from schemas import Person
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -17,3 +17,8 @@ def read_item(value1: int, value2: int):
         "value2": value2,
         "result": value1 + value2
     }
+
+
+@app.post("/person")
+def read_root(person: Person):
+    return person
